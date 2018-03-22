@@ -1,0 +1,377 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="prism-atom-dark.css"
+      type="text/css"
+      media="screen"
+      />
+
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript" src="prism.ruby.js"></script>
+    <title>Jay Johnson</title>
+    <meta name="description" content="Jay Johnson is a junior
+        software engineer specializing in full-stack development.
+        He has significant experience with Ruby on Rails, html, css, and javascript.">
+  </head>
+
+  <body> -->
+  <div class="about-container">
+    <ul>
+      <li><a href="#" class="nav-link">ABOUT</a></li>
+      <li><a href="#code-samples" class="nav-link">CODE SAMPLES</a></li>
+      <li><a href="#web-apps" class="nav-link">WEB APPS</a></li>
+      <li><a href="#skills-and-tools" class="nav-link">SKILLS &amp; TOOLS</a></li>
+      <li class="hire-me"><a href="#hire-me" class="nav-link">HIRE ME</a></li>
+    </ul>
+  <div class="about">
+    <%= image_tag "cat_astronaut_best.jpg", class: 'me' %>
+
+
+    <h1>Jay Johnson</h1>
+
+
+    <h2>Software Engineer</h2>
+
+    <hr class="grey"/>
+
+    <p class="bio">
+      Jay Johnson is junior software engineer.  He has studied Ruby on Rails, html, css, Javascript, and SQL.  He is a recent graduate of The Firehose Project.  He is 3rd place in his Code Wars clan out of 75.  He has created over 15 apps so far.
+
+    </p>
+  </div>
+  </div>
+  <h3 id="code-samples">Code Snippets</h3>
+  <hr class="yellow">
+  <%= link_to "Currently ranked 3rd(out of 75) place in Firehose Project clan on Codewars", "https://www.codewars.com/users/jayj10080", class: "aligned" %>
+
+  <div class="box">
+    <h4>Image Blur with Manhattan Distance</h4>
+  <p>
+    This ruby algorithm take an multidimensional array and find all the ones.  It will then change all the zeroes within a manhattan distance into ones.
+  </p>
+  </div>
+
+  <div class="box">
+    <pre class="shorter"><code class="language-ruby">class Image
+  attr_accessor :image
+
+  def initialize(image)
+    @image = image
+  end 
+
+  def array_of_ones
+    @index_of_1 = []
+    image.each_with_index do |row, row_index|
+      row.each_with_index do |pixel, col_index|
+        if pixel == 1
+          @index_of_1.push([row_index, col_index])
+        end
+      end
+    end 
+    p @index_of_1
+  end
+
+def output_image1
+    image.each { |x| 
+      puts x.join
+    }
+  end
+
+def touples(n)
+  @array_of_touples = []
+  @z = n
+  @n = n + 1
+  @n.times do |x|
+    @n.times do |y|
+      if x + y &lt; @n
+      @array_of_touples &lt;&lt; [x, y]
+      @array_of_touples &lt;&lt; [-x, y]
+      @array_of_touples &lt;&lt; [-x, -y]
+      @array_of_touples &lt;&lt; [x, -y]
+    end
+    end
+  end
+  p @array_of_touples
+end
+
+def transform3 
+    @index_of_1.each do |touple|
+      row_index, col_index = touple
+      blur3(row_index, col_index)
+    end
+  end
+
+  def blur3(row_index, col_index)
+    @array_of_touples.each do |touple|
+      x, y = touple
+      first_row = image[0]
+
+      new_row_index = row_index + x
+      new_col_index = col_index + y
+      max_row_length = image.length - 1
+      max_col_length = first_row.length-1
+
+        if new_row_index &lt; 0
+          new_row_index = 0
+        end
+
+        if new_row_index &gt; max_row_length
+          new_row_index = max_row_length
+        end
+
+        if new_col_index &lt; 0
+          new_col_index = 0
+        end
+
+        if new_col_index &gt; max_col_length
+          new_col_index = max_col_length
+        end
+
+        image[new_row_index][new_col_index] = 1
+      
+    end
+  end
+
+end 
+
+i = Image.new([
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],    
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1]
+])
+
+i.array_of_ones
+i.touples(3)
+i.transform3
+i.output_image1
+
+    </code></pre>
+  </div>
+
+  <br class="clear" />
+
+  <div class="box">
+<pre class="shorter"><code class="language-ruby">
+  
+class LinkedListNode
+  attr_accessor :value, :next_node
+  def initialize(value, next_node=nil)
+    @value = value
+    @next_node = next_node
+  end
+end
+
+def print_values(print_this)
+  if print_this
+    print &quot;#{print_this.value} --&gt; &quot;
+    print_values(print_this.next_node)
+  else
+    print &quot;nil\n&quot;
+  end
+end
+
+class Stack
+  attr_accessor :data
+  def initialize
+    @data = nil
+  end
+  
+  def push(push_this)
+    @data = LinkedListNode.new(push_this, @data)
+  end
+end
+
+def reverse_list(reverse_this)
+  reversed = Stack.new
+  while reverse_this != nil
+    reversed.push(reverse_this.value)
+    reverse_this = reverse_this.next_node
+  end
+  reversed.data
+end
+
+def reverse_list2(list, previous=nil)
+  while list != nil                       
+    old_next_node = list.next_node        
+    list.next_node = previous                                 
+    previous = list                       
+    list = old_next_node                  
+  end
+  return previous
+end
+  
+ node1 = LinkedListNode.new(37)
+ node2 = LinkedListNode.new(99, node1)
+ node3 = LinkedListNode.new(12, node2)
+
+ print_values(node3)
+ p rev = reverse_list(node3)
+ print_values(rev)
+ rev2 = reverse_list2(node3)
+ print_values(rev2)
+
+
+</code></pre>
+</div>
+
+<div class="box">
+  <h4>Linked List</h4>
+  <p>
+    This algorithm creates a linked list.  It also reverses the linked list with a stack, and without a stack.
+  </p>
+</div>
+
+<br class="clear" />
+<div class="box">
+  <h4>Depth First Search</h4>
+  <p>
+    This algorithm uses recursion to search for a particular node in a tree.
+  </p>
+</div>
+
+<div class="box">
+<pre class="shorter"><code class="language-ruby">class Tree
+  attr_accessor :payload, :children
+
+  def initialize(payload, children)
+    @payload = payload
+    @children = children
+  end
+
+  def dfs_11
+    puts @payload                               
+    return self if @payload == 11         
+    @children.each do |child|              
+      var1 = child.dfs_11                                  
+      if var1 == nil                       
+        else
+          return var1
+        end
+    end
+    return nil                             
+  end
+
+end
+
+deep_fifth_node = Tree.new(5, [])
+eleventh_node = Tree.new(11, [])
+fourth_node   = Tree.new(4, [])
+
+ninth_node = Tree.new(9, [fourth_node])
+sixth_node = Tree.new(6, [deep_fifth_node, eleventh_node])
+seventh_node = Tree.new(7, [sixth_node])
+shallow_fifth_node = Tree.new(5, [ninth_node])
+
+trunk   = Tree.new(2, [seventh_node, shallow_fifth_node])
+
+p trunk.dfs_11</code></pre>
+</div>
+
+<br class="clear" />
+
+<h3 id="web-apps">Web Apps</h3>
+<hr class="yellow" />
+
+<div class="box">
+  <h4>Helping The Homeless</h4>
+  <%= link_to image_tag('helping.png'), "http://passion-jay-johnson.herokuapp.com" %>
+  <p>
+    This is a prototype app I made.  It is 
+    a resource for people in need, and a way for
+    compassionate individuals to connect with and help others.  
+    It allows users to send messages to each other, 
+    receive emails notifications, search for resources, and
+    share their stories. 
+  </p>
+</div>
+<div class="box">
+  <h4>Agile Team Project</h4>
+  <%= link_to image_tag('chess.png'), "https://dreamteam-chess.herokuapp.com/" %>
+  <p>
+    I worked on an Agile software development team building
+    a chess application. Under the guidance of a senior software engineer,
+    we had weekly Agile team meetings for code reviews, sprint planning,
+    and feature assignments.
+  </p>
+</div>
+<br class="clear" />
+ <div class="box">
+  <h4>Edward Snowden Leak Generator</h4>
+  <%= image_tag "snowden.png", class: 'full-width' %>
+  <p>
+    This app utilizes an API that I created.  I use an ajax get request
+    to the json endpoint, and load a random quote from the famous
+    NSA whistleblower Edward Snowden.
+  </p>
+</div>
+<div class="box">
+  <h4>Yelp Clone</h4>
+  <%= image_tag "nomster.png", class: 'full-width' %>
+  <p>
+    A Yelp clone that integrates with the Google Maps API
+    and includes features like user comments, star ratings,
+    image uploading, and user authentication.
+  </p>
+</div>
+<br class="clear" />
+<div class="box">
+  <h4>Two-Sided Market Place</h4>
+  <%= image_tag "flixter.png", class: 'full-width' %>
+  <p>
+    A two-sided, video-streaming marketplace platform that
+    features credit card payment capabilities, user role
+    management, complex user interfaces, and advanced
+    database relationships.
+  </p>
+</div>
+<div class="box">
+  <h4>Test Driven Development</h4>
+  <%= image_tag "grammable.png", class: 'full-width' %>
+  <p>
+    An Instagram clone that was built using industry-standard, test-driven
+    development following numerous red/green/refactor cycles.
+  </p>
+</div>
+    
+   
+    
+    <br class="clear" />
+    <h3 id="skills-and-tools">Skills &amp; Tools</h3>
+    <hr class="yellow" />
+    <p class="skills-and-tools">
+      Jay has developed proficiency and expertise
+      in the following programming languages and
+      comfort with the following tools.
+    </p>
+    <div class="icons">
+      <%= image_tag "github.png", class: 'icon' %>
+      <%= image_tag "rubocop.png", class: 'icon' %>
+      <%= image_tag "trello.png", class: 'icon' %>
+      <%= image_tag "slack.png", class: 'icon' %>
+      <%= image_tag "codeship.png", class: 'icon' %>
+      <br class="clear" />
+      <%= image_tag "skills.png", class: 'icon' %>
+    </div>
+  <div class="contact-me" id="hire-me">
+  <h3 class="contact-headline">Contact</h3>
+  <hr class="yellow" />
+  <p class="contact-info">
+        Currently entertaining new opportunities.
+        Please get in touch via email:
+    </p>
+  <p>
+      <a href="mailto:jayj10080@gmail.com" class="contact-link">
+          jayj10080@gmail.com
+      </a>
+    </p>
+</div>
+<!-- </body>
+
+</html>
