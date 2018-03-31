@@ -325,6 +325,9 @@
     <br class="clear" />
     <h3 id="skills-and-tools">Skills &amp; Tools</h3>
     <hr class="yellow" />
+    <div class="text-center">
+      <%= link_to "Certifications", certifications_path, class: "btn btn-primary" %>
+    </div>
     <p class="skills-and-tools">
       Jay has developed proficiency and expertise
       in the following programming languages and
@@ -352,6 +355,47 @@
       </a>
     </p>
 </div>
+
+
+<script type="text/javascript">
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+</script>
+
 
 <script type="text/javascript">
   /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript&plugins=line-highlight */
