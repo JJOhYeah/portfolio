@@ -1,27 +1,49 @@
-<div class="about-container">
-  <ul>
-    <li><a href="#" class="nav-link">ABOUT</a></li>
-    <li><a href="#code-samples" class="nav-link">CODE SAMPLES</a></li>
-    <li><a href="#web-apps" class="nav-link">WEB APPS</a></li>
-    <li><a href="#skills-and-tools" class="nav-link">SKILLS &amp; TOOLS</a></li>
-    <li class="hire-me"><a href="#hire-me" class="nav-link">HIRE ME</a></li>
-  </ul>
-<div class="about">
-  <%= image_tag "cat_astronaut_best.jpg", class: 'me' %>
-  <h1>Jay Johnson</h1>
-  <br />
-  <h2>Software Engineer</h2>
-  <hr class="grey"/>
-  <p class="bio">
-    Jay Johnson is junior software engineer.  He has studied Ruby on Rails, html, css, Javascript, and SQL.  He is a recent graduate of The Firehose Project.  He is 3rd place in his Code Wars clan out of 75.  He has created over 15 apps so far.
+<nav class="navbar navbar-toggleable-md navbar-inverse slide slide-one" id="navbar">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse nav-height" id="navbarTogglerDemo02 nav-text">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item neg-margin">
+        <a href="#about" class="nav-link">ABOUT</a>
+      </li>
+      <li class="nav-item neg-margin">
+        <a href="#code-samples" class="nav-link">CODE</a>
+      </li>
+      <li class="nav-item neg-margin">
+        <a href="#web-apps" class="nav-link">APPS</a>
+      </li>
+      <li class="nav-item neg-margin">
+        <a href="#skills-and-tools" class="nav-link">SKILLS</a>
+      </li>
+      <li class="nav-item neg-margin link-right">
+        <a href="#hire-me" class="nav-link">CONTACT</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  </p>
+
+
+<div class="about-container" id="about">
+  <div class="about">
+    <div id="startchange"></div>
+    <%= image_tag "cat_astronaut_best.jpg", class: 'me' %>
+    <h1>Jay Johnson</h1>
+    <br />
+    <h2 class="bigger">Software Engineer</h2>
+    <hr class="grey"/>
+    <p class="bio">
+      I'm a dedicated developer, passionate about tackling new challenges and learning new things.  I have studied Ruby on Rails, html, css, Javascript, SQL, and more.  I am a recent graduate of The Firehose Project.  I'm ranked 3rd place in my Code Wars clan out of 75.  I have created over 15 apps so far.
+    </p>
+  </div>
 </div>
-</div>
-<h3 id="code-samples">Code Snippets</h3>
+<!-- <h1 id="code-samples" class="anchor"></h1> -->
+
+<h3 id="code-samples" class="anchor-padding">Code Snippets</h3>
 <hr class="yellow">
 <div class='text-center'>
-  <%= link_to "Currently ranked 3rd(out of 75) place in Firehose Project clan on Codewars", "https://www.codewars.com/users/jayj10080", class: "btn btn-primary" %>
+  <%= link_to "Currently ranked 3rd(out of 75) place in The Firehose Project clan on Codewars", "https://www.codewars.com/users/jayj10080", class: "btn btn-primary" %>
 </div>
 
 <div class="box">
@@ -252,7 +274,7 @@
 
 <br class="clear" />
 
-<h3 id="web-apps">Web Apps</h3>
+<h3 id="web-apps" class="anchor-padding">Web Apps</h3>
 <hr class="yellow" />
 <div class="text-center">
   <%= link_to "See All Projects", all_path, class: "btn btn-primary" %>
@@ -274,7 +296,7 @@
 <div class="box">
   <h4>Agile Team Project</h4>
   <%= link_to image_tag('chess.png'), "https://dreamteam-chess.herokuapp.com/", class: "full-width" %>
-  <p>
+  <p class="text">
     I worked on an Agile software development team building
     a chess application. Under the guidance of a senior software engineer,
     we had weekly Agile team meetings for code reviews, sprint planning,
@@ -323,22 +345,22 @@
    
     
     <br class="clear" />
-    <h3 id="skills-and-tools">Skills &amp; Tools</h3>
+    <h3 id="skills-and-tools" class="anchor-padding">Skills &amp; Tools</h3>
     <hr class="yellow" />
     <div class="text-center">
       <%= link_to "Certifications", certifications_path, class: "btn btn-primary" %>
     </div>
     <p class="skills-and-tools">
-      Jay has developed proficiency and expertise
+      I have developed proficiency and expertise
       in the following programming languages and
       comfort with the following tools.
     </p>
     <div class="icons">
       <%= image_tag "github.png", class: 'icon' %>
       <%= image_tag "rubocop.png", class: 'icon' %>
-      <%= image_tag "trello.png", class: 'icon' %>
-      <%= image_tag "slack.png", class: 'icon' %>
-      <%= image_tag "codeship.png", class: 'icon' %>
+      <%= image_tag "rspec.png", class: 'icon' %>
+      <%= image_tag "pry.png", class: 'special-icon' %>
+      <%= image_tag "heroku.png", class: 'icon' %>
       <br class="clear" />
       <%= image_tag "skills.png", class: 'icon' %>
     </div>
@@ -346,13 +368,17 @@
   <h3 class="contact-headline">Contact</h3>
   <hr class="yellow" />
   <p class="contact-info">
-        Currently entertaining new opportunities.
+        Let's work together.
         Please get in touch via email:
     </p>
   <p>
       <a href="mailto:jayj10080@gmail.com" class="contact-link">
           jayj10080@gmail.com
       </a>
+      <br />
+      <a href="https://github.com/jayj10080" class="contact-link">
+      My Github
+    </a>
     </p>
 </div>
 
@@ -426,5 +452,35 @@ Prism.languages.ruby = {
   'ignore': /&(lt|gt|amp);/gi,
   'punctuation': /[{}[\];(),.:]/g
 };
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){       
+   var scroll_start = 0;
+   var startchange = $('#startchange');
+   var offset = startchange.offset();
+   $(document).scroll(function() { 
+      scroll_start = $(this).scrollTop();
+      if(scroll_start > offset.top) {
+        $('#navbar').css({
+          'background-color': '#f4f4f4',
+          'transition': 'background-color 1s ease-in 0s'
+        });
+        $('.navbar-inverse .navbar-nav .nav-link').css({
+          'color': 'black'
+        });
+      } 
+      else {
+        $('#navbar').css({
+          'background-color': 'transparent',
+          'transition': 'background-color 1s ease-in 0s'
+        });
+        $('.navbar-inverse .navbar-nav .nav-link').css({
+          'color': 'white',
+          'transition': 'background-color 1s ease-in 0s'
+        });
+      }
+   });
+});
 </script>
 
