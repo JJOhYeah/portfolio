@@ -8,10 +8,10 @@
         <a href="#about" class="nav-link">ABOUT</a>
       </li>
       <li class="nav-item neg-margin">
-        <a href="#code-samples" class="nav-link">CODE</a>
+        <a href="#web-apps" class="nav-link">APPS</a>
       </li>
       <li class="nav-item neg-margin">
-        <a href="#web-apps" class="nav-link">APPS</a>
+        <a href="#code-samples" class="nav-link">CODE</a>
       </li>
       <li class="nav-item neg-margin">
         <a href="#skills-and-tools" class="nav-link">SKILLS</a>
@@ -28,7 +28,7 @@
 <div class="about-container" id="about">
   <div class="about">
     <div id="startchange"></div>
-    <%= image_tag "cat_astronaut_best.jpg", class: 'me' %>
+    <%= image_tag "me.jpg", class: 'me' %>
     <h1>Jay Johnson</h1>
     <br />
     <h2 class="bigger">Software Engineer</h2>
@@ -38,7 +38,77 @@
     </p>
   </div>
 </div>
-<!-- <h1 id="code-samples" class="anchor"></h1> -->
+
+<br class="clear" />
+
+<h3 id="web-apps" class="anchor-padding">Web Apps</h3>
+<hr class="yellow" />
+<div class="text-center">
+  <%= link_to "See All Projects", all_path, class: "btn btn-primary" %>
+</div>
+<br class="clear" />
+<div class="box">
+  <h4>Two-Sided Market Place</h4>
+  <%= link_to image_tag('flixter.png'), "https://flixter-jay-johnson.herokuapp.com/", class: "full-width" %>
+  <p>
+    A two-sided, video-streaming marketplace platform that
+    features credit card payment capabilities, user role
+    management, complex user interfaces, and advanced
+    database relationships.
+  </p>
+</div>
+<div class="box">
+  <h4>Helping The Homeless</h4>
+  <%= link_to image_tag('helping.png'), "http://passion-jay-johnson.herokuapp.com/", class: "full-width" %>
+  <p>
+    This is an app I made to help those who are homeless connect with people that wish to help.  It is 
+    a resource for people in need, and a way for
+    compassionate individuals to connect with and help others.  
+    It allows users to send messages to each other, 
+    receive emails notifications, search for resources, and
+    share their stories.  I built the messaging system from scratch. 
+  </p>
+</div>
+<br class="clear" />
+<div class="box">
+  <h4>Agile Team Project</h4>
+  <%= link_to image_tag('chess.png'), "https://dreamteam-chess.herokuapp.com/", class: "full-width" %>
+  <p class="text">
+    I worked on an Agile software development team building
+    a chess application. Under the guidance of a senior software engineer,
+    we had weekly Agile team meetings for code reviews, sprint planning,
+    and feature assignments.  I have found and corrected numerous bugs using Pry.
+  </p>
+</div>
+<div class="box">
+  <h4>Test Driven Development</h4>
+  <%= link_to image_tag('grammable.png'), "https://grammable-jay-johnson.herokuapp.com/", class: "full-width" %>
+  <p>
+    An Instagram clone that was built using industry-standard, test-driven
+    development following numerous red/green/refactor cycles.
+  </p>
+</div>
+<br class="clear" />
+ <div class="box">
+  <h4>Edward Snowden Leak Generator</h4>
+  <%= link_to image_tag('snowden.png'), "http://snowden-jay-johnson.herokuapp.com/", class: "full-width" %>
+  <p>
+    This app utilizes an API that I created.  I use an ajax get request
+    to the json endpoint, and load a random quote from the famous
+    NSA whistleblower Edward Snowden.
+  </p>
+</div>
+<div class="box">
+  <h4>Yelp Clone</h4>
+  <%= link_to image_tag('nomster.png'), "https://yelpers-jay-johnson.herokuapp.com/", class: "full-width" %>
+  <p>
+    A Yelp clone that integrates with the Google Maps API
+    and includes features like user comments, star ratings,
+    image uploading, and user authentication.
+  </p>
+</div>
+
+<br class="clear" />
 
 <h3 id="code-samples" class="anchor-padding">Code Snippets</h3>
 <hr class="yellow">
@@ -49,7 +119,7 @@
 <div class="box">
   <h4>Image Blur with Manhattan Distance</h4>
 <p>
-  This ruby algorithm take an multidimensional array and find all the ones.  It will then change all the zeroes within a manhattan distance into ones.
+  The Manhattan Distance is the distance between two points in a grid based on a strictly horizontal and/or vertical path (that is, along the grid lines), as opposed to the diagonal or "as the crow flies" distance.  This ruby algorithm takes a multidimensional array and finds all the ones.  It will then change all the zeroes within a Manhattan Distance into ones.  
 </p>
 </div>
 
@@ -81,16 +151,15 @@
 
   def touples(n)
     @array_of_touples = []
-    @z = n
     @n = n + 1
     @n.times do |x|
       @n.times do |y|
         if x + y &lt; @n
-        @array_of_touples &lt;&lt; [x, y]
-        @array_of_touples &lt;&lt; [-x, y]
-        @array_of_touples &lt;&lt; [-x, -y]
-        @array_of_touples &lt;&lt; [x, -y]
-      end
+          @array_of_touples &lt;&lt; [x, y]
+          @array_of_touples &lt;&lt; [-x, y]
+          @array_of_touples &lt;&lt; [-x, -y]
+          @array_of_touples &lt;&lt; [x, -y]
+        end
       end
     end
     p @array_of_touples
@@ -273,124 +342,52 @@
 </div>
 
 <br class="clear" />
-
-<h3 id="web-apps" class="anchor-padding">Web Apps</h3>
+<h3 id="skills-and-tools" class="anchor-padding">Skills &amp; Tools</h3>
 <hr class="yellow" />
 <div class="text-center">
-  <%= link_to "See All Projects", all_path, class: "btn btn-primary" %>
+  <%= link_to "Certifications", certifications_path, class: "btn btn-primary" %>
 </div>
-<br class="clear" />
-
-<div class="box">
-  <h4>Helping The Homeless</h4>
-  <%= link_to image_tag('helping.png'), "http://passion-jay-johnson.herokuapp.com/", class: "full-width" %>
-  <p>
-    This is a prototype app I made.  It is 
-    a resource for people in need, and a way for
-    compassionate individuals to connect with and help others.  
-    It allows users to send messages to each other, 
-    receive emails notifications, search for resources, and
-    share their stories. 
-  </p>
+<p class="skills-and-tools">
+  I have developed proficiency and expertise
+  in the following programming languages and
+  comfort with the following tools.
+</p>
+<div class="icons">
+  <%= image_tag "github.png", class: 'icon' %>
+  <%= image_tag "rubocop.png", class: 'icon' %>
+  <%= image_tag "rspec.png", class: 'icon' %>
+  <%= image_tag "pry.png", class: 'special-icon' %>
+  <%= image_tag "heroku.png", class: 'icon' %>
+  <br class="clear" />
+  <%= image_tag "skills.png", class: 'icon' %>
 </div>
-<div class="box">
-  <h4>Agile Team Project</h4>
-  <%= link_to image_tag('chess.png'), "https://dreamteam-chess.herokuapp.com/", class: "full-width" %>
-  <p class="text">
-    I worked on an Agile software development team building
-    a chess application. Under the guidance of a senior software engineer,
-    we had weekly Agile team meetings for code reviews, sprint planning,
-    and feature assignments.
-  </p>
-</div>
-<br class="clear" />
- <div class="box">
-  <h4>Edward Snowden Leak Generator</h4>
-  <%= link_to image_tag('snowden.png'), "http://snowden-jay-johnson.herokuapp.com/", class: "full-width" %>
-  <p>
-    This app utilizes an API that I created.  I use an ajax get request
-    to the json endpoint, and load a random quote from the famous
-    NSA whistleblower Edward Snowden.
-  </p>
-</div>
-<div class="box">
-  <h4>Yelp Clone</h4>
-  <%= link_to image_tag('nomster.png'), "https://yelpers-jay-johnson.herokuapp.com/", class: "full-width" %>
-  <p>
-    A Yelp clone that integrates with the Google Maps API
-    and includes features like user comments, star ratings,
-    image uploading, and user authentication.
-  </p>
-</div>
-<br class="clear" />
-<div class="box">
-  <h4>Two-Sided Market Place</h4>
-  <%= link_to image_tag('flixter.png'), "https://flixter-jay-johnson.herokuapp.com/", class: "full-width" %>
-  <p>
-    A two-sided, video-streaming marketplace platform that
-    features credit card payment capabilities, user role
-    management, complex user interfaces, and advanced
-    database relationships.
-  </p>
-</div>
-<div class="box">
-  <h4>Test Driven Development</h4>
-  <%= link_to image_tag('grammable.png'), "https://grammable-jay-johnson.herokuapp.com/", class: "full-width" %>
-  <p>
-    An Instagram clone that was built using industry-standard, test-driven
-    development following numerous red/green/refactor cycles.
-  </p>
-</div>
-    
-   
-    
-    <br class="clear" />
-    <h3 id="skills-and-tools" class="anchor-padding">Skills &amp; Tools</h3>
-    <hr class="yellow" />
-    <div class="text-center">
-      <%= link_to "Certifications", certifications_path, class: "btn btn-primary" %>
-    </div>
-    <p class="skills-and-tools">
-      I have developed proficiency and expertise
-      in the following programming languages and
-      comfort with the following tools.
-    </p>
-    <div class="icons">
-      <%= image_tag "github.png", class: 'icon' %>
-      <%= image_tag "rubocop.png", class: 'icon' %>
-      <%= image_tag "rspec.png", class: 'icon' %>
-      <%= image_tag "pry.png", class: 'special-icon' %>
-      <%= image_tag "heroku.png", class: 'icon' %>
-      <br class="clear" />
-      <%= image_tag "skills.png", class: 'icon' %>
-    </div>
-  <div class="contact-me" id="hire-me">
+<div class="contact-me" id="hire-me">
   <h3 class="contact-headline">Contact</h3>
   <hr class="yellow" />
   <p class="contact-info">
-        Let's work together.
-        Please get in touch via email:
-    </p>
+    Let's work together.
+    Please get in touch via email:
+  </p>
   <p>
-      <a href="mailto:jayj10080@gmail.com" class="contact-link">
-          jayj10080@gmail.com
-      </a>
-      <br />
-      <a href="https://github.com/jayj10080" class="contact-link">
-      My Github
+    <a href="mailto:jayj10080@gmail.com" class="contact-link">
+      jayj10080@gmail.com
     </a>
-    </p>
+    <br />
+    <a href="https://github.com/jayj10080" class="contact-link">
+    My Github
+    </a>
+  </p>
 </div>
 
 
 <script type="text/javascript">
-// Select all links with hashes
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
+  // Select all links with hashes
+  $('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      // On-page links
     if (
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
       && 
