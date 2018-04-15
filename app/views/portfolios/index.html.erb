@@ -124,48 +124,48 @@
 </div>
 
 <div class="box">
-  <pre class="shorter"><code class="language-ruby">class Image
-  attr_accessor :image
+  <pre class="shorter"><code class="language-ruby">  class Image
+    attr_accessor :image
 
-  def initialize(image)
-    @image = image
-  end 
-
-  def array_of_ones
-    @index_of_1 = []
-    image.each_with_index do |row, row_index|
-      row.each_with_index do |pixel, col_index|
-        if pixel == 1
-          @index_of_1.push([row_index, col_index])
-        end
-      end
+    def initialize(image)
+      @image = image
     end 
-    p @index_of_1
-  end
 
-  def output_image1
-      image.each { |x| 
-        puts x.join
-      }
+    def array_of_ones
+      @index_of_1 = []
+      image.each_with_index do |row, row_index|
+        row.each_with_index do |pixel, col_index|
+          if pixel == 1
+            @index_of_1.push([row_index, col_index])
+          end
+        end
+      end 
+      p @index_of_1
     end
 
-  def touples(n)
-    @array_of_touples = []
-    @n = n + 1
-    @n.times do |x|
-      @n.times do |y|
-        if x + y &lt; @n
-          @array_of_touples &lt;&lt; [x, y]
-          @array_of_touples &lt;&lt; [-x, y]
-          @array_of_touples &lt;&lt; [-x, -y]
-          @array_of_touples &lt;&lt; [x, -y]
-        end
+    def output_image1
+      image.each do |x| 
+        puts x.join
       end
     end
-    p @array_of_touples
-  end
 
-  def transform3 
+    def touples(n)
+      @array_of_touples = []
+      @n = n + 1
+      @n.times do |x|
+        @n.times do |y|
+          if x + y &lt; @n
+            @array_of_touples &lt;&lt; [x, y]
+            @array_of_touples &lt;&lt; [-x, y]
+            @array_of_touples &lt;&lt; [-x, -y]
+            @array_of_touples &lt;&lt; [x, -y]
+          end
+        end
+      end
+      p @array_of_touples
+    end
+
+    def transform3 
       @index_of_1.each do |touple|
         row_index, col_index = touple
         blur3(row_index, col_index)
@@ -182,27 +182,25 @@
         max_row_length = image.length - 1
         max_col_length = first_row.length-1
 
-          if new_row_index &lt; 0
-            new_row_index = 0
-          end
+        if new_row_index &lt; 0
+          new_row_index = 0
+        end
 
-          if new_row_index &gt; max_row_length
-            new_row_index = max_row_length
-          end
+        if new_row_index &gt; max_row_length
+          new_row_index = max_row_length
+        end
 
-          if new_col_index &lt; 0
-            new_col_index = 0
-          end
+        if new_col_index &lt; 0
+          new_col_index = 0
+        end
 
-          if new_col_index &gt; max_col_length
-            new_col_index = max_col_length
-          end
+        if new_col_index &gt; max_col_length
+          new_col_index = max_col_length
+        end
 
-          image[new_row_index][new_col_index] = 1
-        
+        image[new_row_index][new_col_index] = 1
       end
     end
-
   end 
 
   i = Image.new([
@@ -225,9 +223,7 @@
 <br class="clear" />
 
 <div class="box">
-  <pre class="shorter"><code class="language-ruby">
-    
-  class LinkedListNode
+  <pre class="shorter"><code class="language-ruby">  class LinkedListNode
     attr_accessor :value, :next_node
     def initialize(value, next_node=nil)
       @value = value
@@ -274,15 +270,15 @@
     return previous
   end
     
-   node1 = LinkedListNode.new(37)
-   node2 = LinkedListNode.new(99, node1)
-   node3 = LinkedListNode.new(12, node2)
+  node1 = LinkedListNode.new(37)
+  node2 = LinkedListNode.new(99, node1)
+  node3 = LinkedListNode.new(12, node2)
 
-   print_values(node3)
-   p rev = reverse_list(node3)
-   print_values(rev)
-   rev2 = reverse_list2(node3)
-   print_values(rev2)
+  print_values(node3)
+  p rev = reverse_list(node3)
+  print_values(rev)
+  rev2 = reverse_list2(node3)
+  print_values(rev2)
 
 
   </code></pre>
@@ -304,7 +300,7 @@
 </div>
 
 <div class="box">
-  <pre class="shorter"><code class="language-ruby">class Tree
+  <pre class="shorter"><code class="language-ruby">  class Tree
     attr_accessor :payload, :children
 
     def initialize(payload, children)
@@ -324,7 +320,6 @@
       end
       return nil                             
     end
-
   end
 
   deep_fifth_node = Tree.new(5, [])
